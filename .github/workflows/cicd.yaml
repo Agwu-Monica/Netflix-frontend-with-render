@@ -1,0 +1,25 @@
+name: Push Frontend to Azure
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Azure
+        uses: azure/docker-login@v1
+        with:
+          login-server: ${{ secrets.AZURE_REGISTRY_SERVER }}
+          username: ${{ secrets.AZURE_REGISTRY_USERNAME }}
+          password: ${{ secrets.AZURE_REGISTRY_PASSWORD }}
+
+      - name: Build and push Frontend
+        run: |
+          docker build -t monicanetflixregistry.azurecr.io/netflix-frontend:latest .
+          docker push monicanetflixregistry.azurecr.io/netflix-frontend:latest
