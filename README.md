@@ -1,4 +1,4 @@
-# 🎬 Monica's Netflix Full-Stack Deployment (DevOps Case Study)
+# 🎬 Monica's Netflix Full-Stack Deployment 
 
 A cloud-native, decoupled movie gallery demonstrating modern CI/CD practices and Full-Stack integration.
 
